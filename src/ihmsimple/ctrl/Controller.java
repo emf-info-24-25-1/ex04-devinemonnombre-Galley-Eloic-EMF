@@ -1,5 +1,11 @@
 package ihmsimple.ctrl;
 
+import static ihmsimple.services.ServiceDevine.NOMBRE_INVALIDE;
+
+import ihmsimple.services.ServiceDevine;
+import ihmsimple.views.View;
+import javafx.scene.paint.Color;
+
 /**
  * Classe représentant le contrôleur de l'application MVC "IhmSimple".
  * 
@@ -11,17 +17,17 @@ public class Controller {
     /**
      * Le nombre courrant de l'utilisateur.
      */
-    // VOTRE CODE ICI...
+    private int nombre;
 
     /**
      * Référence à la vue de l'application.
      */
-    // VOTRE CODE ICI...
+    private View refView = new View();
 
     /**
      * Référence au serviceDevine de l'application.
      */
-    // VOTRE CODE ICI...
+    private ServiceDevine refServiceDevine = new ServiceDevine(null);
 
     /**
      * Constructeur du contrôleur. Comme toujours, le travail N°1 consiste à
@@ -31,7 +37,9 @@ public class Controller {
      * nombre, utilisez NOMBRE_INVALIDE.
      */
     public Controller() {
-        // VOTRE CODE ICI...
+        this.nombre = NOMBRE_INVALIDE;
+        this.refView = null;
+        this.refServiceDevine = null;
     }
 
     /**
@@ -39,7 +47,8 @@ public class Controller {
      * Voir le diagramme de séquence pour l'implémentation de cette méthode.
      */
     public void actionDemarrerNouveauJeu() {
-        // VOTRE CODE ICI...
+        nombre = refServiceDevine.penserAUnNombre();
+        refView.afficherStatus("Devinez !", Color.YELLOW);
     }
 
     /**
