@@ -48,7 +48,7 @@ public class Controller {
      */
     public void actionDemarrerNouveauJeu() {
         refServiceDevine.penserAUnNombre();
-        refView.afficherStatus("Devinez !", Color.YELLOW);
+        refView.afficherStatus("Devinez !", java.awt.Color.YELLOW);
     }
 
     /**
@@ -60,15 +60,15 @@ public class Controller {
         int valeurProposee = refView.lireValeurProposee();
          if (valeurProposee != NOMBRE_INVALIDE) {
             if (valeurProposee < nombre) {
-                refView.afficherStatus("Trop petit !", Color.RED);
+                refView.afficherStatus("Trop petit !", java.awt.Color.RED);
             }else if (valeurProposee > nombre){
-                refView.afficherStatus("Trop grand !", Color.RED);
+                refView.afficherStatus("Trop grand !", java.awt.Color.RED);
             } else{
-                refView.afficherStatus("Trouver !!!", Color.GREEN);
+                refView.afficherStatus("Trouver !!!", java.awt.Color.GREEN);
             }
         }
     }else{
-        refView.afficherStatus("Entrez un nombre !", Color.YELLOW);
+        refView.afficherStatus("Entrez un nombre !", java.awt.Color.YELLOW);
     }
 }
 
@@ -77,7 +77,8 @@ public class Controller {
      * Voir le diagramme de séquence pour l'implémentation de cette méthode.
      */
     public void start() {
-        // VOTRE CODE ICI...
+        refView.ihmStart();
+        refView.afficherStatus("Jeu terminé !", java.awt.Color.LIGHT_GRAY);
     }
 
     /**
@@ -86,7 +87,7 @@ public class Controller {
      * @param refView la nouvelle référence à la vue de l'application
      */
     public void setRefView(View refView) {
-        // VOTRE CODE ICI...
+        this.refView = refView;
     }
 
     /**
@@ -96,7 +97,7 @@ public class Controller {
      *                         l'application
      */
     public void setRefServiceDevine(ServiceDevine refServiceDevine) {
-        // VOTRE CODE ICI...
+        this.refServiceDevine = refServiceDevine;
     }
 
     /**
@@ -105,7 +106,7 @@ public class Controller {
      * @return la référence à la vue de l'application
      */
     public View getRefView() {
-        // VOTRE CODE ICI...
+        return refView;
     }
 
     /**
@@ -114,7 +115,7 @@ public class Controller {
      * @return la référence au serviceDevine de l'application
      */
     public ServiceDevine getRefServiceDevine() {
-        // VOTRE CODE ICI...
+        return refServiceDevine;
     }
 
 }
