@@ -47,7 +47,7 @@ public class Controller {
      * Voir le diagramme de séquence pour l'implémentation de cette méthode.
      */
     public void actionDemarrerNouveauJeu() {
-        nombre = refServiceDevine.penserAUnNombre();
+        refServiceDevine.penserAUnNombre();
         refView.afficherStatus("Devinez !", Color.YELLOW);
     }
 
@@ -56,8 +56,21 @@ public class Controller {
      * Voir le diagramme de séquence pour l'implémentation de cette méthode.
      */
     public void actionDeviner() {
-        // VOTRE CODE ICI...
+        if (nombre != NOMBRE_INVALIDE) {
+        int valeurProposee = refView.lireValeurProposee();
+         if (valeurProposee != NOMBRE_INVALIDE) {
+            if (valeurProposee < nombre) {
+                refView.afficherStatus("Trop petit !", Color.RED);
+            }else if (valeurProposee > nombre){
+                refView.afficherStatus("Trop grand !", Color.RED);
+            } else{
+                refView.afficherStatus("Trouver !!!", Color.GREEN);
+            }
+        }
+    }else{
+        refView.afficherStatus("Entrez un nombre !", Color.YELLOW);
     }
+}
 
     /**
      * Méthode permettant de démarrer l'application.
