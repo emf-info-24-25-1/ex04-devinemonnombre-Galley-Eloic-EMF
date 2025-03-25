@@ -47,7 +47,7 @@ public class Controller {
      * Voir le diagramme de séquence pour l'implémentation de cette méthode.
      */
     public void actionDemarrerNouveauJeu() {
-        refServiceDevine.penserAUnNombre();
+        nombre = refServiceDevine.penserAUnNombre();
         refView.afficherStatus("Devinez !", java.awt.Color.YELLOW);
     }
 
@@ -57,20 +57,20 @@ public class Controller {
      */
     public void actionDeviner() {
         if (nombre != NOMBRE_INVALIDE) {
-        int valeurProposee = refView.lireValeurProposee();
-         if (valeurProposee != NOMBRE_INVALIDE) {
-            if (valeurProposee < nombre) {
-                refView.afficherStatus("Trop petit !", java.awt.Color.RED);
-            }else if (valeurProposee > nombre){
-                refView.afficherStatus("Trop grand !", java.awt.Color.RED);
-            } else{
-                refView.afficherStatus("Trouver !!!", java.awt.Color.GREEN);
+            int valeurProposee = refView.lireValeurProposee();
+            if (valeurProposee != NOMBRE_INVALIDE) {
+                if (valeurProposee < nombre) {
+                    refView.afficherStatus("Trop petit !", java.awt.Color.RED);
+                } else if (valeurProposee > nombre) {
+                    refView.afficherStatus("Trop grand !", java.awt.Color.RED);
+                } else {
+                    refView.afficherStatus("Trouver !!!", java.awt.Color.GREEN);
+                }
+            } else {
+                refView.afficherStatus("Entrez un nombre !", java.awt.Color.YELLOW);
             }
         }
-    }else{
-        refView.afficherStatus("Entrez un nombre !", java.awt.Color.YELLOW);
     }
-}
 
     /**
      * Méthode permettant de démarrer l'application.
