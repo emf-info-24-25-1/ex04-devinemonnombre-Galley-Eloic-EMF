@@ -20,7 +20,7 @@ public class IhmSimple {
         View refWiew = new View();
         refCtrl.setRefView(refWiew);
         refWiew.setRefCtrl(refCtrl);
-        refServiceDevine.setRefCtrl(refCtrl);
+        refServiceDevine.setRefCtrl(null);
         refCtrl.start();
     }
 

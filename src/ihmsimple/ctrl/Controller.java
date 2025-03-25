@@ -27,7 +27,7 @@ public class Controller {
     /**
      * Référence au serviceDevine de l'application.
      */
-    private ServiceDevine refServiceDevine = new ServiceDevine(null);
+    private ServiceDevine refServiceDevine;
 
     /**
      * Constructeur du contrôleur. Comme toujours, le travail N°1 consiste à
